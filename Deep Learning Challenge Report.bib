@@ -1,0 +1,36 @@
+Overview of the analysis: 
+
+This analysis served to create a model that will help the nonprofit foundation Alphabet Soup select the applicants for funding with the best chance of success in their ventures. The goal was to create a model that was over 75% accurate. By optimizing the neural networks we were able to create a model with 78.4% accurate.
+
+Results: Using bulleted lists and images to support your answers, address the following questions:
+
+Data Preprocessing
+
+What variable(s) are the target(s) for your model? Is_Successful was the variable that was the target for the model. With a 0 meaning not successful and a 1 meaning successful
+What variable(s) are the features for your model? 
+'NAME',
+ 'APPLICATION_TYPE',
+ 'AFFILIATION',
+ 'CLASSIFICATION',
+ 'USE_CASE',
+ 'ORGANIZATION',
+ 'INCOME_AMT'
+
+What variable(s) should be removed from the input data because they are neither targets nor features?
+I removed the 'EIN', and "Name" in the first version, which had an accuracy of 73.3%. In the optimized version I removed "EIN" 'STATUS', 'SPECIAL_CONSIDERATIONS' but kept name. They were removed because they did not provide diversity for the minority. Names were used and binned if they were referenced less than 5 times.
+
+Compiling, Training, and Evaluating the Model
+
+How many neurons, layers, and activation functions did you select for your neural network model, and why?
+The first neural network model had 90 neurons in the first layer and 45 in the second layer. The optimized nn model had 100 neurons in the first layer, 45 in the second and 10 in the thrid layer. The optimized model had 2 layers, while the second one had 3. The first nn model used relu for the layers and sigmoid for the output, while the optimized version used relu for the first layer then sigmoid for the 2 other hidden layers and the output layer.
+
+Were you able to achieve the target model performance?
+yes, the model had an accuracy of 78.4%.
+
+What steps did you take in your attempts to increase model performance?
+To increase model perfomance I removed non-beneficial columns of 'EIN', "STATUS', and "Special_consdierations", while keeping the name column. In the preprocessing I also binned "NAMES" that were used less than 5 times into an "other" bin.  Additonally added another hidden layer and increased the number of epochs. Used the optimization method to create a better performing model.
+
+Summary: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and then explain your recommendation.
+
+To improve the performance you may look closer at the names. Or use a different model. At the end of the model there is an example of using a random forest classifier, it had an accuracy rate pf 76.98% which did not perform as well as the optimized nnmodel which had an accuracy rate of 78.45%. further optimization would need to be implemented to increase the accuracy of the models.
+
